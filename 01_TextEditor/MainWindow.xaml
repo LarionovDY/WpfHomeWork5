@@ -1,0 +1,60 @@
+﻿<Window x:Class="_01_TextEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_01_TextEditor"
+        mc:Ignorable="d"
+        Title="Turbo Text Editor 2022" Height="450" Width="800">
+    <Grid Background="CadetBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Menu Margin="5" Padding="5" Background="CadetBlue" Cursor="Hand">
+            <MenuItem Header="_Файл">
+                <MenuItem Header="_Открыть" Click="MenuItem_Click" />
+                <MenuItem Header="_Сохранить" Click="MenuItem_Click_1" />
+                <Separator/>
+                <MenuItem Header="_Выход" Click="MenuItem_Click_2" />
+            </MenuItem>
+            <MenuItem Header="_Справка" Click="MenuItem_Click_3" />
+        </Menu>
+        <ToolBarTray Grid.Row="1" Background="CadetBlue">
+            <ToolBar Margin="5" Padding="5" Background="CadetBlue">
+                <ComboBox Margin="5" Padding="5" SelectedIndex="0" Width="200" Cursor="Hand" SelectionChanged="ComboBox_SelectionChanged" Background="NavajoWhite">
+                    <TextBlock Text="Arial"/>
+                    <TextBlock Text="Times New Roman"/>
+                    <TextBlock Text="Verdana"/>
+                </ComboBox>
+                <ComboBox Margin="5" Padding="5" SelectedIndex="2" Width="200" Cursor="Hand" SelectionChanged="ComboBox_SelectionChanged_1" Background="NavajoWhite">
+                    <TextBlock Text="12"/>
+                    <TextBlock Text="14"/>
+                    <TextBlock Text="16"/>
+                </ComboBox>
+            </ToolBar>
+            <ToolBar Margin="5" Padding="5" VerticalAlignment="Top" Cursor="Hand" Background="CadetBlue">
+                <Button Width="50" Height="50" Click="Button_Click">
+                    <Image Source="icons\text_bold.png"/>
+                </Button>
+                <Separator/>
+                <Button Width="50" Height="50" Click="Button_Click_1">
+                    <Image Source="icons\text_italic.png"/>
+                </Button>
+                <Separator/>
+                <Button Width="50" Height="50" Click="Button_Click_2">
+                    <Image Source="icons\text_underline.png"/>
+                </Button>
+            </ToolBar>
+            <ToolBar Margin="5" Padding="5" Background="CadetBlue" Cursor="Hand">
+                <StackPanel VerticalAlignment="Center">
+                    <RadioButton Content="Черный" IsChecked="True" Checked="RadioButton_Checked" Background="NavajoWhite" Cursor="Hand"/>
+                    <RadioButton Content="Красный" Checked="RadioButton_Checked_1" Background="NavajoWhite" Cursor="Hand"/>
+                </StackPanel>
+            </ToolBar>
+        </ToolBarTray>
+        <TextBox x:Name="textBox" Grid.Row="2" Margin="5" Padding="5" FontSize="16" FontFamily="Arial" TextWrapping="Wrap" Background="NavajoWhite" SpellCheck.IsEnabled="True" Language="ru-ru">
+        </TextBox>
+    </Grid>
+</Window>
